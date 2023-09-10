@@ -23,7 +23,7 @@ spring :
     config:
       server:
         git:
-          uri: https://github.com/Pranjalkatyayan/My-Configration-Files-For-All-Microservices
+          uri: https://github.com/vivekjha1213/My-Configration-Files-For-All-Microservices
           clone-on-start : true
           default-label: dev-branch
 
@@ -33,7 +33,7 @@ spring :
 
 okta :
   oauth2:
-    issuer: http://localhost:8080/authorization-code/vivekjha
+    issuer: https://dev-86118792.okta.com/oauth2/default
     audience: api://default
     client-id: 0oab6tf3bgCi3Obm25d7
     client-secret: PTvvfL1R39ozo-HmYZQWAnYBiWEdbDwXaCK-90DKadY3eNCb6nmDMwWbot6xzzOp

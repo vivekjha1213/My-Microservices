@@ -11,7 +11,7 @@ spring :
         git:
           uri: https://github.com/vivekjha1213/My-Configration-Files-For-All-Microservices
           clone-on-start : true
-          default-label: develop
+          default-label: dev-branch
 
 
 
