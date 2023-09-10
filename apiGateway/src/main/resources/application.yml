@@ -29,11 +29,13 @@ eureka:
 
 okta :
   oauth2:
-    issuer: http://localhost:8080/authorization-code/vivekjha
+    issuer: https://dev-86118792.okta.com/oauth2/default
     audience: api://default
     client-id: 0oab6tf3bgCi3Obm25d7
     client-secret: PTvvfL1R39ozo-HmYZQWAnYBiWEdbDwXaCK-90DKadY3eNCb6nmDMwWbot6xzzOp
     scopes: openid, profile, email, offline_access
+
+
 
 
 
