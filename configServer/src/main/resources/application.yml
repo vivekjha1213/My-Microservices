@@ -9,7 +9,7 @@ spring :
     config:
       server:
         git:
-          uri: https://github.com//My-Configration-Files-For-All-Microservices
+          uri: https://github.com/vivekjha1213/My-Configration-Files-For-All-Microservices
           clone-on-start : true
           default-label: develop
 
