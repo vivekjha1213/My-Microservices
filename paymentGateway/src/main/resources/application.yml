@@ -1,0 +1,19 @@
+server :
+  port : 8082
+spring :
+
+  application :
+    name: PAYMENT-SERVICE
+
+  data:
+    mongodb:
+      uri : mongodb://localhost:27017/microservices
+
+
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/Pranjalkatyayan/My-Configration-Files-For-All-Microservices
+          clone-on-start : true
+          default-label: dev-branch

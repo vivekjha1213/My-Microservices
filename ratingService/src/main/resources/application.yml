@@ -1,0 +1,26 @@
+server :
+  port: 8083
+spring:
+  application :
+    name : RATING-SERVICE
+  data:
+    mongodb:
+      uri : mongodb://localhost:27017/microservices
+
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/Pranjalkatyayan/My-Configration-Files-For-All-Microservices
+          clone-on-start : true
+          default-label: dev-branch
+
+
+#Okta Configration
+okta :
+  oauth2:
+    issuer: http://localhost:8080/authorization-code/vivekjha
+    audience: api://default
+    client-id: 0oab6tf3bgCi3Obm25d7
+    client-secret: PTvvfL1R39ozo-HmYZQWAnYBiWEdbDwXaCK-90DKadY3eNCb6nmDMwWbot6xzzOp
+    scopes: openid, profile, email, offline_access

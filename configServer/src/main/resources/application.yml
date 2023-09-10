@@ -1,0 +1,18 @@
+server :
+  port : 8080
+
+spring :
+  application:
+    name: CONFIG-SERVER
+
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com//My-Configration-Files-For-All-Microservices
+          clone-on-start : true
+          default-label: develop
+
+
+
+

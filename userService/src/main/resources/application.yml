@@ -1,0 +1,84 @@
+server :
+  port : 8084
+spring :
+
+  application :
+    name: USER-SERVICE
+  datasource :
+    url : jdbc:mysql://localhost:3306/microservices
+    username : root
+    password : 12345678
+  jpa :
+    hibernate :
+      ddl-auto : update
+    show-sql : true
+
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/Pranjalkatyayan/My-Configration-Files-For-All-Microservices
+          clone-on-start : true
+          default-label: dev-branch
+
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri:  https://dev-86118792.okta.com/oauth2/default
+      client:
+        registration:
+          my-internal-client :
+            provider: okta
+            authorizationGrantType: client_credentials
+            scope: internal
+            clientId: 0oab6tf3bgCi3Obm25d7
+            clientSecret: PTvvfL1R39ozo-HmYZQWAnYBiWEdbDwXaCK-90DKadY3eNCb6nmDMwWbot6xzzOp
+
+        provider:
+          okta :
+            issuerUri:  https://dev-86118792.okta.com/oauth2/default
+
+
+Rating-Service : "http://RATING-SERVICE/ratings/"
+Hotel-Service :  "http://HOTEL-SERVICE/hotels/"
+
+#Actuator Points
+management:
+  health:
+    circuitbreakers:
+      enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: health
+
+  endpoint:
+    health:
+      show-details: always
+
+#Circuit Breaker
+resilience4j:
+  circuitbreaker:
+    instances:
+      ratingHotelBreaker:
+        failureRateThreshold : 5
+        slowCallRateThreshold : 25
+        slowCallDurationThreshold : 6000
+        permittedNumberOfCallsInHalfOpenState : 2
+        maxWaitDurationInHalfOpenState : 2000
+        slidingWindowType : COUNT_BASED
+        slidingWindowSize : 10
+        minimumNumberOfCalls : 1
+        waitDurationInOpenState : 6000
+        automaticTransitionFromOpenToHalfOpenEnabled : false
+        registerHealthIndicator: true
+
+#Okta Configration
+okta :
+  oauth2:
+    issuer: http://localhost:8080/authorization-code/vivekjha
+    audience: api://default
+    client-id: 0oab6tf3bgCi3Obm25d7
+    client-secret: PTvvfL1R39ozo-HmYZQWAnYBiWEdbDwXaCK-90DKadY3eNCb6nmDMwWbot6xzzOp
+    scopes: openid, profile, email, offline_access
