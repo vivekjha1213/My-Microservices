@@ -1,14 +1,12 @@
 server:
-  port: 9090
+  port: 8080
 
 spring:
   application:
     name: CONFIG-SERVER
 
-cloud:
-  config:
-    server:
-      git:
-        uri: https://github.com/vivekjha1213/My-Configration-Files-For-All-Microservices
-        clone-on-start: true
-        default-label: dev-branch
+spring.cloud.config.server:
+  git:
+    uri: https://github.com/vivekjha1213/My-Configration-Files-For-All-Microservices
+    clone-on-start: true
+    default-label: main
