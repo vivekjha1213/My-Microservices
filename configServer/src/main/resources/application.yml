@@ -5,7 +5,7 @@ spring :
   application:
     name: CONFIG-SERVER
 
-  cloud:
+cloud:
     config:
       server:
         git:
