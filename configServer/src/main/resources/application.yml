@@ -1,18 +1,14 @@
-server :
-  port : 9090
+server:
+  port: 9090
 
-spring :
+spring:
   application:
     name: CONFIG-SERVER
 
 cloud:
-    config:
-      server:
-        git:
-          uri: https://github.com/vivekjha1213/My-Configration-Files-For-All-Microservices
-          clone-on-start : true
-          default-label: dev-branch
-
-
-
-
+  config:
+    server:
+      git:
+        uri: https://github.com/vivekjha1213/My-Configration-Files-For-All-Microservices
+        clone-on-start: true
+        default-label: dev-branch
